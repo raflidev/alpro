@@ -11,8 +11,8 @@ algoritma
             prima <-- false
             break
         endif
-    until i >= angka;
-    
+        until i >= angka;
+    endrepeatuntil
     if prima then
         output('prima')
     else
