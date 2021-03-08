@@ -1,0 +1,15 @@
+program salary
+kamus
+    name:string
+    salary,level,hour:int
+algoritma
+    input(level,name,hour)
+    depend on level
+        level = 1 : salary = 5000 + (50 * hour)
+        level = 2 : salary = 3000 + (30 * hour)
+        level = 3 : salary = 2500 + (20 * hour)
+        level = 4 : salary = 1000 + (15 * hour)
+        level = 5 : salary = 500 + (10 * hour)
+    endDependon
+    output(name,'salary is',salary)
+endprogram

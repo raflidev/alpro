@@ -1,0 +1,19 @@
+program number_asc
+kamus
+ a,b,c: integer 
+algoritma
+ input(a,b,c)
+ if a < b and b < c then
+   output(a,b,c)
+ else if a < c and c < b then
+   output(a,c,b)
+ else if b < a and a < c then
+   output(b,a,c)
+ else if b < c and c < a then
+   output(b,c,a)
+ else if c < a and a < b then
+   output(c,a,b)
+ else if c < b and b < a then
+   output(c,b,a)
+ endif
+endprogram

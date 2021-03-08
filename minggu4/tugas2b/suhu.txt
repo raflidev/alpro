@@ -1,0 +1,13 @@
+program suhu
+kamus
+  celcius: integer
+algoritma
+  input(celcius)
+  if celcius <= 0 then
+    output("Solid")
+  else if celcius > 0 and celcius <= 100 then
+    output("Liquid")
+  else if celcius > 100 then
+    output("Vapor")
+  endif
+endprogram

@@ -1,0 +1,20 @@
+program prima
+kamus
+    angka: integer
+    prima: boolean
+algoritma
+    input(angka)
+    prima <-- true
+    i <-- 2
+    repeat
+        if angka % i == 0 then
+            prima <-- false
+            break
+        endif
+    until i >= angka;
+    
+    if prima then
+        output('prima')
+    else
+        output('bukan prima')
+endprogram

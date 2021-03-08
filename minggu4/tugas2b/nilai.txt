@@ -1,0 +1,14 @@
+program nilai_matkul
+kamus
+    nilai : integer
+algoritma
+    depend on nilai
+        nilai >= 80 and nilai <= 100    : output("A")
+        nilai >= 75 and nilai < 80      : output("AB")
+        nilai >= 70 and nilai < 75      : output("B")
+        nilai >= 60 and nilai < 70      : output("BC")
+        nilai >= 50 and nilai < 60      : output("C")
+        nilai >= 40 and nilai < 50      : output("D")
+        nilai >= 0 and nilai < 40       : output("E")
+    endDependon
+endprogram
