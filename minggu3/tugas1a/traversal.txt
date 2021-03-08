@@ -1,0 +1,8 @@
+program cobaTraversal
+kamus
+    x: integer
+algoritma
+    x <- 0
+    x traversal [1..70]
+        output(x + 1)
+endprogram
