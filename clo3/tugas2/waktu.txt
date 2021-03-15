@@ -1,0 +1,14 @@
+program waktu
+kamus
+    hour, minute, second, jumlah: integer
+algoritma
+    input(hour, minute, second)
+    jumlah <-- menghitungWaktu(hour, minute, second)
+    output(jumlah, 'Detik')
+
+function menghitungWaktu(hour,minute,second:integer) --> integer
+algoritma
+    return (hour * 3600) + (minute * 60) + (second * 1)
+endfunction
+
+endprogram

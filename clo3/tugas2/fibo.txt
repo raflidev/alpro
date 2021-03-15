@@ -1,0 +1,26 @@
+program fibo
+kamus
+    n, t1, t2, nth, jumlah: integer
+algoritma
+    t1, t2 <-- 0, 1
+    input(n)
+
+    jumlah <-- fibo(jumlah, t1, t2, nth, n)
+    output("Jumlah fibo:", jumlah)
+
+function fibo(jumlah,t1,t2,nth,n:integer) --> integer
+kamus
+    i:integer
+algoritma
+    i <-- 0
+    for i to n do {
+		jumlah <-- jumlah + t1
+		nth <-- t1 + t2
+		t1 <-- t2
+		t2 <-- nth
+	endfor
+    
+	return jumlah
+endfunction
+
+endprogram

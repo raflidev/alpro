@@ -1,0 +1,26 @@
+program prima
+kamus
+    n,jumlah: integer
+algoritma
+    input(n)
+    jumlah = cekPrima(n,jumlah)
+    output("Banyak prima:", jumlah)
+
+
+function cekPrima(n,jumlah integer) --> integer 
+kamus
+    i:integer
+algoritma
+    i <-- 2
+    while n > 0 do
+        for i to n do
+            if n%i == 0 then
+                jumlah = jumlah + 1
+            endif
+        endfor 
+        input(n)
+    endwhile
+    return jumlah
+endfunction
+
+endprogram

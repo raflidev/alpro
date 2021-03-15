@@ -1,0 +1,26 @@
+program diskon
+kamus
+    belanja,diskon: integer
+    member: boolean
+    
+algoritma
+    input(belanja,member)
+    diskon <-- ambilDiskon(belanja,member)
+    output("Total bayar :",belanja - ((belanja * diskon) / 100))
+
+function ambilDiskon(belajar:integer, member:boolean) --> integer 
+kamus
+    diskon:integer
+
+algoritma
+    if belanja > 100000 then
+		if member then
+			diskon = 10
+		else
+			diskon = 5
+		endif
+	endif
+	return diskon
+endfunction
+
+endprogram

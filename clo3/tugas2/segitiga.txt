@@ -1,0 +1,23 @@
+program segitiga
+kamus
+    s1, s2, s3: integer
+	segitiga: boolean
+algoritma
+    segitiga <-- cekSegitiga(s1, s2, s3)
+
+	if segitiga then
+		output("Segitiga")
+	else
+		output("Bukan segitiga")
+	endif
+
+function cekSegitiga(s1,s2,s3:integer) --> boolean
+algoritma
+    if (s1+s2 <= s3) || (s1+s3 <= s2) || (s2+s3 <= s1) then
+		return false
+	else
+		return true
+	endif
+endfunction
+
+endprogram
