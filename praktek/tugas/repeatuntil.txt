@@ -1,0 +1,11 @@
+program repeatuntil
+kamus
+    k :integer
+algoritma
+    k <-- 0
+    repeat
+        output(k)
+        k <-- k + 1
+    until k < 10
+    endrepeat
+endprogram

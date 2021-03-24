@@ -1,0 +1,20 @@
+program IPS
+kamus
+    sks, matkul, jumlah: integer
+    nilai: string
+    daftarnilai: array
+algoritma
+    daftarnilai <- ["A": 4, "B": 3, "D": 2, "E": 1, "F": 0]
+    jumlah <- 0
+    input(matkul)
+    for i <- 0 to matkul do
+        input(nilai,sks)
+
+        while sks < 0 || (nilai != "A" && nilai != "B" && nilai != "C" && nilai != "D" && nilai != "E" && nilai != "F") 
+            input(nilai,sks)
+		endwhile
+
+        jumlah = jumlah + (daftarnilai[nilai] * sks)
+    endfor
+    output(jumlah)
+endprogram

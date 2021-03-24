@@ -1,0 +1,11 @@
+program repeatntimes
+kamus
+    i,count:integer
+algoritma
+    count <-- 0
+    input(i)
+    repeat i times
+        count <-- count + 2
+        output(count)
+    endrepeat
+endprogram

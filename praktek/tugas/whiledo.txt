@@ -1,0 +1,10 @@
+program cobawhiledo
+kamus
+    t :integer
+algoritma
+    t <-- 0
+    while t < 88 do
+        output(t)
+        t <-- t + 1
+    endwhile
+endprogram

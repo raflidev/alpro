@@ -1,0 +1,19 @@
+Program STUDENT
+kamus
+    tahun, mi, mo, ma, jumlah, salah: integer
+algoritma
+    jumlah <- 0
+    salah <- 0
+    input(tahun)
+    for i <- 0 to tahun do
+        input(mi,mo,ma)
+        jumlah = jumlah + (mi - mo)
+        if jumlah == ma then
+            salah = salah + 1
+        endif
+
+    if salah != tahun then
+        output(salah + 1)
+    endif
+
+endprogram

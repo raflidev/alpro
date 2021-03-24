@@ -1,0 +1,51 @@
+program TEBAK
+kamus
+    rahasia,tebakan,salahtebak = integer
+    player = array
+    playNow,enemy = string
+algoritma
+    playerNow = player[0]
+    enemy = player[1]
+    salahtebak <- 0
+    for x <- 0 to x == x do
+        salahtebak = 0
+        output(playerNow, " - masukan angka rahasia: ")
+        input(rahasia)
+
+        if rahasia >= 1 && rahasia <= 20 then
+            for i <- 1 to i <= 3 do
+                output(enemy, " - masukan angka tebakan: ")
+                input(tebakan)
+                if tebakan != rahasia then
+                    salahtebak = salahtebak + 1
+                else
+                    output(enemy, "adalah pemenangnya")
+                    if enemy == "A" then
+                        playerNow = player[0]
+                        enemy = player[1]
+                    else
+                        playerNow = player[1]
+                        enemy = player[0]
+                    endif
+
+                    break
+                endif
+            endfor
+
+            if salahtebak == 3 then
+                output(playerNow,"adalah pemenangnya")
+                if enemy != "A" then
+                        playerNow = player[1]
+                        enemy = player[0]
+                    else
+                        playerNow = player[0]
+                        enemy = player[1]
+                    endif
+            endif
+
+        else if rahasia == -101 then
+            output("Permainan selesai")
+            break
+        endif
+
+    endfor

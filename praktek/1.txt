@@ -1,0 +1,16 @@
+program EXAM
+kamus
+    nilai : integer
+    input(nilai)
+    if nilai > 80 then
+        if nilai == 100 then
+            output(100000)
+        else if nilai > 85 and nilai <= 99 then
+            output(50000)
+        else if nilai > 80 and nilai <= 85 then
+            output(25000)
+        endif
+    else
+        output(0)
+    endif
+endprogram
