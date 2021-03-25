@@ -1,0 +1,23 @@
+program faktorial
+kamus
+    bil1, bil2: integer
+	x, y, z: integer
+algoritma
+    input(bil1,bil2)
+    x <-- P(bil1)
+    y <-- P(bil2)
+    z <-- P(bil1 - bil2)
+
+    fmt.Println(x,y, x/z)
+
+function P(in x integer) <-- integer
+kamus
+    j: integer
+    j <-- 1
+    i <-- 1
+    for i to i <= x do {
+        j <-- j * i
+    }
+    return j
+endfunction
+endprogram

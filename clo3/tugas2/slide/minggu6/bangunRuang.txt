@@ -1,0 +1,14 @@
+program bangunRuang
+kamus
+    a,b,c: real
+    op: char
+algoritma
+    input(a,b,c,op)
+    if op == "T" then
+        output(a*b*c)
+    else if op == "O"
+        output(3.14*a*a*c)
+    else if op == "P"
+        output(0.5*a*b*c)
+    endif
+endprogram
