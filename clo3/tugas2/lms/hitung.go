@@ -2,16 +2,22 @@ package main
 
 import "fmt"
 
+var i int
+var bilangan, rata, jumlah float64
+
 func main() {
-	var i int
-	var rata, bil int
-	fmt.Scanln(&bil)
+	fmt.Scan(&bilangan)
 	i = 0
 	rata = 0
-	for bil > 0 {
+	for bilangan > 0 {
 		i = i + 1
-		rata += bil
-		fmt.Scanln(&bil)
+		hitungRataRata(bilangan, i, rata)
+		fmt.Scan(&bilangan)
 	}
 	fmt.Println(rata)
+}
+
+func hitungRataRata(b float64, i int, r float64) {
+	jumlah = jumlah + b
+	rata = jumlah / float64(i)
 }
