@@ -1,0 +1,31 @@
+program happy_shopping
+kamus
+    member:string
+    a,b,c,d,e: integer
+    cashback,diskon: real
+algoritma
+    masukan()
+    promoCashbackDiskon(a,b,c,d,e)
+	output(cashback, diskon)
+
+procedure masukan()
+    input(member,a,b,c,d,e)
+endprocedure
+
+function cekGanjil() <-- boolean
+    if a mod 2 == 1 && b mod 2 == 1 && c mod 2 == 1 && d mod 2 == 1 && e mod 2 == 1 {
+		return true
+	} else {
+		return false
+	}
+endfunction
+
+function cekGenap() <-- boolean
+    if a mod 2 == 0 && b mod 2 == 0 && c mod 2 == 0 && d mod 2 == 0 && e mod 2 == 0 {
+		return true
+	} else {
+		return false
+	}
+endfunction
+
+endprogram
