@@ -11,13 +11,13 @@ func main() {
 	rata = 0
 	for bilangan > 0 {
 		i = i + 1
-		hitungRataRata(bilangan, i, rata)
+		hitungRataRata(bilangan, i, &rata)
 		fmt.Scan(&bilangan)
 	}
 	fmt.Println(rata)
 }
 
-func hitungRataRata(b float64, i int, r float64) {
+func hitungRataRata(b float64, i int, r *float64) {
 	jumlah = jumlah + b
-	rata = jumlah / float64(i)
+	*r = jumlah / float64(i)
 }

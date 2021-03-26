@@ -1,0 +1,38 @@
+program biner
+kamus
+    a,b: integer
+    remainder,result: integer
+    bucket: integer
+    hasil: string
+algoritma
+    input(a)
+    b = 2
+    hasil = Des2Bin(a)
+    output(hasil)
+
+procedure Division(in a,b integer,in/out result integer,in remainder integer)
+    while a != 0 do
+        if a % 2 == 0 then
+            remainder <-- 0
+        else
+            remainder <-- 1
+        endif
+        bucket = Num2Str(remainder) + bucket
+        a /= b
+    endwhile
+endprocedure
+
+function Num2Str(x integer) <-- string
+    if x == 0 then
+        return "0"
+    else
+        return "1"
+    endif
+endfunction
+
+function Des2Bin(desimal integer) <-- string
+	Division(a, b, &result, remainder)
+	return bucket
+endfunction
+
+endprogram
