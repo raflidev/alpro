@@ -12,7 +12,7 @@ procedure masukan()
     input(member,a,b,c,d,e)
 endprocedure
 
-function cekGanjil() <-- boolean
+function cekGanjil(a,b,c,d,e int) <-- boolean
     if a mod 2 == 1 && b mod 2 == 1 && c mod 2 == 1 && d mod 2 == 1 && e mod 2 == 1 {
 		return true
 	} else {
@@ -20,12 +20,39 @@ function cekGanjil() <-- boolean
 	}
 endfunction
 
-function cekGenap() <-- boolean
+function cekGenap(a,b,c,d,e int) <-- boolean
     if a mod 2 == 0 && b mod 2 == 0 && c mod 2 == 0 && d mod 2 == 0 && e mod 2 == 0 {
 		return true
 	} else {
 		return false
 	}
 endfunction
+
+procedure promoCashbackDiskon(a,b,c,d,e int) {
+	if cekGanjil(a,b,c,d,e) {
+		diskon = 1.7 * float64(c+d+e)
+	} else {
+		cashback = 3.1 * float64(a+b+c)
+	}
+	if !cekGanjil(a,b,c,d,e) && !cekGenap(a,b,c,d,e) {
+		cashback = (3.1 * float64(a+b+c))
+		diskon = (1.7 * float64(c+d+e))
+	}
+	membership(member)
+
+	if cashback > 35 {
+		cashback = 35
+	}
+	if diskon > 50 {
+		diskon = 50
+	}
+endprocedure
+
+procedure membership(member)
+kamus
+	memberdiskon, membercashback real
+algoritma
+	if member
+endprocedure
 
 endprogram
