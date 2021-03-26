@@ -1,0 +1,56 @@
+program pertanian
+kamus
+    uangAwal:real
+    tUang,tPengeluaran,tPemasukan: real
+algoritma
+    input(uangAwal)
+    tPengeluaran <-- 0
+    tPemasukan <-- 0    
+    tUang = uangAwal
+
+    membeliBibit(uangAwal, tUang, tPengeluaran)
+	membeliPupuk(uangAwal, tUang, tPengeluaran)
+	menanamBibit(uangAwal, tUang, tPengeluaran)
+	menanamBibit(uangAwal, tUang, tPengeluaran)
+	memberiPupuk(uangAwal, tUang, tPengeluaran)
+	memberiPupuk(uangAwal, tUang, tPengeluaran)
+	memberiPupuk(uangAwal, tUang, tPengeluaran)
+	memberiPupuk(uangAwal, tUang, tPengeluaran)
+	memanen(uangAwal, tUang, tPengeluaran)
+	memanen(uangAwal, tUang, tPengeluaran)
+	menjualHasilPanen(uangAwal, tUang, tPengeluaran, tPemasukan)
+
+    output(tPengeluaran, tPemasukan, tUang)
+
+procedure membeliBibit(in uangAwal real,in/out tUang, tPengeluaran real) 
+    tUang = tUang - uangAwal/4
+    tPengeluaran = uangAwal /4
+endprocedure
+
+procedure membeliPupuk(in uangAwal real,in/out tUang, tPengeluaran real) 
+    tUang = tUang - uangAwal/20
+    tPengeluaran = tPengeluaran + uangAwal/20
+endprocedure
+
+procedure menanamBibit(in uangAwal real,in/out tUang, tPengeluaran real) 
+    tUang = tUang - uangAwal/200
+    tPengeluaran = tPengeluaran + uangAwal/200
+endprocedure
+
+procedure memberiPupuk(in uangAwal real,in/out tUang, tPengeluaran real) 
+    tUang = tUang - uangAwal/200
+    tPengeluaran = tPengeluaran + uangAwal/200
+endprocedure
+
+procedure memanen(in uangAwal real,in/out tUang, tPengeluaran real) 
+    tUang = tUang - 3*uangAwal/200
+    tPengeluaran = tPengeluaran + 3*uangAwal/200
+endprocedure
+
+procedure menjualHasilPanen(in uangAwal real,in/out tUang, tPengeluaran, tPemasukan real) 
+    tUang = tUang - 3*uangAwal/200
+    tPengeluaran = tPengeluaran + 3*uangAwal/200
+    tPemasukan = uangAwal/2
+endprocedure
+
+endprogram

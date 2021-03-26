@@ -1,0 +1,93 @@
+program artmatika
+kamus
+    op,op1,op2: string
+    input(op,op1,op2)
+    tampil(op,op1,op2)
+
+function nilaiTeks(n string) <-- integer
+kamus
+    x: integer
+algoritma
+    if n == "NOL" then
+		x <-- 0
+	else if n == "SATU" then
+		x <-- 1
+	else if n == "DUA" then
+		x <-- 2
+	else if n == "TIGA" then
+		x <-- 3
+	else if n == "EMPAT" then
+		x <-- 4
+	else if n == "LIMA" then
+		x <-- 5
+	else if n == "ENAM" then
+		x <-- 6
+	else if n == "TUJUH" then
+		x <-- 7
+	else if n == "DELAPAN" then
+		x <-- 8
+	else if n == "SEMBILAN" then
+		x <-- 9
+	endif
+
+    return x
+endfunction
+
+function teksNilai(n integer) <-- string
+kamus
+    var x string
+algoritma
+	if n == 0 then
+		x <-- "NOL"
+	else if n == 1 then
+		x <-- "SATU"
+	else if n == 2 then
+		x <-- "DUA"
+	else if n == 3 then
+		x <-- "TIGA"
+	else if n == 4 then
+		x <-- "EMPAT"
+	else if n == 5 then
+		x <-- "LIMA"
+	else if n == 6 then
+		x <-- "ENAM"
+	else if n == 7 then
+		x <-- "TUJUH"
+	else if n == 8 then
+		x <-- "DELAPAN"
+	else if n == 9 then
+		x <-- "SEMBILAN"
+	endif
+
+    return x
+endfunction
+
+function hasilKomputasi(op, op1, op2 string) <-- integer
+kamus
+	jumlah: integer
+algoritma
+	if op == "TAMBAH" then
+		jumlah <-- nilaiTeks(op1) + nilaiTeks(op2)
+	else if op == "KURANG" then
+		jumlah <-- nilaiTeks(op1) - nilaiTeks(op2)
+	endif
+	return jumlah
+endfunction
+
+procedure tampil(op, op1, op2 string)
+kamus
+	var result int
+algoritma
+	result <-- hasilKomputasi(op, op1, op2)
+	if result < 0 then
+		result <-- result * -1
+		fmt.Println("MINUS NOL", teksNilai(result))
+	else if result > 0 && result < 9 then
+		fmt.Println("NOL", teksNilai(result))
+	else if result >= 10 then
+		result <-- result - 10
+		fmt.Println("SATU", teksNilai(result))
+	endif
+endprocedure
+
+endprogram

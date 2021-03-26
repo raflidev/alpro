@@ -3,9 +3,10 @@ package main
 import "fmt"
 
 var i int
-var bilangan, rata, jumlah float64
+var bilangan, rata float64
 
 func main() {
+	var bilangan float64
 	fmt.Scan(&bilangan)
 	i = 0
 	rata = 0
@@ -18,6 +19,6 @@ func main() {
 }
 
 func hitungRataRata(b float64, i int, r *float64) {
-	jumlah = jumlah + b
-	*r = jumlah / float64(i)
+	bilangan = bilangan + b
+	*r = bilangan / float64(i)
 }
