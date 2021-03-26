@@ -13,13 +13,13 @@ algoritma
 
 procedure BacaData(usaha integer, jumlahDoa integer, doaOrtu boolean, nilai string)
 	TabungDoaUsaha(*usaha, jumlahDoa, &total)
-	total = TabungUsahaDoa(doaOrtu, &total)
-	total = HasilNilaiAlpro(nilai, &total)
+	total <-- TabungUsahaDoa(doaOrtu, &total)
+	total <-- HasilNilaiAlpro(nilai, &total)
 	fmt.Println(HasilAkhir(total))
 endprocedure
 
 procedure TabungDoaUsaha(in usaha integer,in doa integer,in/out total integer)
-	total = doa + usaha
+	total <-- doa + usaha
 endprocedure
 
 function TabungUsahaDoa(in doa bool,in/out total integer) <-- integer
@@ -32,20 +32,20 @@ endfunction
 
 function HasilNilaiAlpro(in nilai string,in/out total integer) <-- integer
 	if nilai == "A" then
-		*total = *total - 150
+		*total <-- *total - 150
 	else if nilai == "B" then
-		*total = *total - 130
+		*total <-- *total - 130
 	else if nilai == "C" then
-		*total = *total - 100
+		*total <-- *total - 100
 	else if nilai == "D" then
-		*total = *total - 0
+		*total <-- *total - 0
 	else if nilai == "E" then
-		*total = *total - 0
+		*total <-- *total - 0
 	endif
 	return *total
 endfunction
 
-function HasilAkhir(poin integer) <-- string
+function HasilAkhir(in poin integer) <-- string
 	if poin >= 130 then
 		return "Lulus langsung dapat kerja gaji 2 digit"
 	else if poin >= 50 && poin < 130 then

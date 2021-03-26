@@ -4,16 +4,17 @@ kamus
     bilangan,rata,jumlah: real
 algoritma
     input(bilangan)
-    i = 0
-    rata = 0
+    i <-- 0
+    rata <-- 0
     while bilangan > 0 {
-        i = i + 1
+        i <-- i + 1
         hitungRataRata(bilangan, i, rata)
         input(bilangan)
     }
     output(rata)
+    
 procedure hitungRataRata(in b real, in i integer, in/out r real)
     jumlah = jumlah + b
-    r = jumlah / float64(i)
+    r <-- jumlah / float64(i)
 endprocedure
 endprogram
