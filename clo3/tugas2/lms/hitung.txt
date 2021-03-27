@@ -1,7 +1,7 @@
 program hitung
 kamus
     i:integer
-    bilangan,rata,jumlah: real
+    rata,jumlah: real
 algoritma
     input(bilangan)
     i <-- 0
@@ -14,7 +14,7 @@ algoritma
     output(rata)
     
 procedure hitungRataRata(in b real, in i integer, in/out r real)
-    jumlah = jumlah + b
-    r <-- jumlah / float64(i)
+    bilangan = bilangan + b
+    r <-- bilangan / float64(i)
 endprocedure
 endprogram
