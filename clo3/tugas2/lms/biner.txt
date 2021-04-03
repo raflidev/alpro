@@ -2,7 +2,6 @@ program biner
 kamus
     a,b: integer
     remainder,result: integer
-    bucket: integer
     hasil: string
 algoritma
     input(a)
@@ -17,7 +16,7 @@ procedure Division(in a,b integer,in/out result integer,in remainder integer)
         else
             remainder <-- 1
         endif
-        bucket = Num2Str(remainder) + bucket
+        hasil = Num2Str(remainder) + hasil
         a /= b
     endwhile
 endprocedure
@@ -32,7 +31,7 @@ endfunction
 
 function Des2Bin(desimal integer) <-- string
 	Division(a, b, &result, remainder)
-	return bucket
+	return hasil
 endfunction
 
 endprogram

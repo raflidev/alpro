@@ -1,0 +1,40 @@
+program Biner
+kamus
+    desimal: integer
+algoritma
+    input(desimal)
+    output(Des2Bin(desimal))
+
+procedure Division(in a,b integer, in/out result, remainder integer)
+    result <-- a div b
+    reminder <-- a mod b
+endprocedure
+
+function Num2Str(in x integer) <-- string
+    if x = 1 then
+        return 1
+    else
+        return 0
+    endif
+endfunction
+
+function Des2Bin(in desimal integer) <-- string
+    bin: string
+    bagi, reminder: integer
+    Division()
+endfunction
+
+function Num2Str(in x integer) <-- string
+    if desimal = 0 or desimal = 1 then
+    return desimal
+    else
+    while desimal > 0 do
+        Division(desimal, 2, result, remainder)
+        bin <-- bin + Num2Str(remainder)
+        bin <-- result
+    endwhile
+    return bin
+    endif
+endfunction
+
+endprogram
