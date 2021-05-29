@@ -2,71 +2,57 @@ package main
 
 import "fmt"
 
-type tag struct {
-	topik  string
-	banyak int
-}
-
-type tabTopic = [100]string
-
-type tabTag = [100]tag
+type tabStr = [100]string
 
 func main() {
-	var topic tabTopic
-	var tag tabTag
-	isi(&topic, &tag)
-	trending(tag)
-}
-
-func cari(topic *tabTopic, kata string) int {
-	var i, k int
-	for i < len(topic) {
-		if kata == topic[i] {
-			k++
-		}
-		i++
-	}
-	return k
-}
-
-func isi(topic *tabTopic, tag *tabTag) {
-	var i, j, k, l int
-	var kata string
-	var n string
-	for i < len(topic) && n != "." {
-		fmt.Scan(&n)
-		if n != "." {
-			topic[i] = n
-		}
-		i++
-	}
-	for j < len(topic) {
-		if topic[j] != "" {
-			fmt.Println(topic)
-			kata = topic[j]
-			tag[l].topik = kata
-			tag[l].banyak = cari(topic, kata)
-			l++
-			for k < len(topic) {
-				if topic[k] == kata {
-					topic[k] = ""
-				}
-				k++
-			}
-		}
-		j++
-		k = 0
+	var t tabStr
+	var teks, w string
+	var k, idx, posisi int
+	fmt.Scanln(&teks, &w)
+	isiArray(teks, &t, &k)
+	cariIndex(&t, &k, w, &idx)
+	if idx == -1 {
+		fmt.Println(-1)
+	} else {
+		cariPosisi(t, k, w, &posisi, &idx)
+		fmt.Println(posisi, idx)
 	}
 }
 
-func trending(tag tabTag) {
-	var max, i, id int
-	for i < len(tag) {
-		if max < tag[i].banyak {
-			max = tag[i].banyak
-			id = i
+func panjang(s string) int {
+	return len(s)
+}
+
+func isiArray(s string, daftar *tabStr, k *int) {
+	for *k < panjang(s) {
+		daftar[*k] = string(s[*k])
+		*k++
+	}
+}
+
+func cariIndex(daftar *tabStr, k *int, w string, idx *int) {
+	var i int
+	var ketemu bool
+	for i < *k && !ketemu {
+		if daftar[i] == string(w[0]) {
+			ketemu = true
+			*idx = i
 		}
 		i++
 	}
-	fmt.Println(tag[id].topik)
+	if !ketemu {
+		*idx = -1
+	}
+}
+
+func cariPosisi(daftar tabStr, n int, w string, posisi *int, idx *int) {
+	var i int
+	*posisi = 1
+	for i < n && daftar[i] != daftar[*idx] {
+		if daftar[i] == "_" {
+			*posisi += 1
+			*idx -= i + 1
+		}
+		i++
+	}
 }

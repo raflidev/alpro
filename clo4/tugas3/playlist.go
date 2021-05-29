@@ -52,7 +52,7 @@ func buatPlaylist(T *playlist, n *int) {
 func laguTerlama(T *playlist, n int) {
 	var idx, max int
 	idx = 0
-	max = (T[0].menit * 60) + T[0].detik
+	max = 0
 	for i := 0; i < n; i++ {
 		if (T[i].menit*60)+T[i].detik > max {
 			max = (T[i].menit * 60) + T[i].detik
