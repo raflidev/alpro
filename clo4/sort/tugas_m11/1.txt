@@ -1,0 +1,64 @@
+procedure inputArray(in/out M: mahasiswa,n: integer)
+kamus
+  i: integer,
+  name, sid: string
+  gpa: real
+algoritma
+  i = 0
+  input(name, sid, gpa)
+  while i < nmax && name != "#" do
+    T[i].name = name
+    T[i].sid = sid
+    T[i].gpa = gpa
+    input(name, sid, gpa)
+    i++
+    n++
+  endwhile 
+endprocedure
+
+procedure sort(in/out M: tabMhs,in n: integer)
+kamus
+  pass, idx, i: integer
+  temp: student
+algoritma
+  pass = 1
+  while pass <= n-1 do
+    idx = pass -1
+    i = pass
+    while i < n do
+      if M[idx].gpa < M[i].gpa then
+        idx = i
+      endif
+      i++
+    endwhile
+
+    temp = M[pass-1]
+    M[pass-1] = M[idx]
+    M[idx] = temp
+
+    pass++
+  endwhile
+endprocedure
+
+procedure cetakArray(in M tabMhs, n integer)
+kamus
+  i integer
+algoritma
+  i = 0
+  for i to n do
+    print(M[i].sid, M[i].name, M[i].gpa)
+  endfor
+endprocedure
+
+program mahasiswa
+kamus
+  constant NMAX: integer = 2022
+  type student < name, sid: string, gpa: real>
+  type tabMhs < array [0..NMAX-1] of student
+  mahasiswa: tabMhs
+  n: integer
+algoritma
+  inputArray(mahasiswa, n)
+  sort(mahasiswa, n)
+  cetakArray(mahasiswa, n)
+endprogram

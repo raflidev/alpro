@@ -1,0 +1,54 @@
+procedure inputArray(in/out T: intArray)
+kamus
+  data, i: integer
+algoritma
+  i = 0
+  input(data)
+  while i < MAX && data != 0 do
+    T.tabInt[i] = data
+    T.N++
+    input(data)
+    i++
+  endwhile 
+endprocedure
+
+procedure sortArray(in/out T: intArray)
+kamus
+  pass, idx, i, temp: integer
+algoritma
+  pass = 1
+  while pass <= T.N - 1 do
+    idx = pass - 1
+    i = pass
+    while i < T.N do
+      if T.tabInt[idx] < T.tabInt[i] then
+        idx = i
+      endif
+      i++
+    endwhile
+
+    temp = T[pass - 1]
+    T[pass - 1] = T[idx]
+    T[idx] = temp
+
+    pass++
+  endwhile
+endprocedure
+
+function isSimiliar(in T1, T2: intArray) -> boolean
+  return T1.tabInt == T2.tabInt
+endfunction
+
+program sortandmatch
+kamus
+  constant MAX : integer = 30
+  type intArray <
+    tabInt array [0..MAX] of integer,
+    N: integer
+  >
+
+  array1, array2: intArray
+algoritma
+  inputArray(array1)
+  inputArray(array2)
+endprogram
