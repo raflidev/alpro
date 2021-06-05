@@ -1,0 +1,91 @@
+procedure cariLagu(in/out T: playlist, in n integer)
+kamus
+  i, j: integer
+algoritma
+  i <- 0
+  j <- 0
+
+  while i < n do
+    while j < n do
+      if T[i].judul == T[j].judul && T[i].penyanyi == T[j].penyanyi && j != i do
+				T[j].judul <- ""
+				T[j].penyanyi <- ""
+				T[j].menit <- 0
+				T[j].detik <- 0
+			endif
+      j++
+    endwhile
+    i++
+    j = 0
+  endwhile
+endprocedure
+
+procedure buatPlaylist(in/out T:playlist, n: integer)
+kamus
+  judul, penyanyi: string
+  menit,detik,i: integer
+algoritma
+  i = 0
+  input(judul, penyanyi, menit, detik)
+  while judul != "#" && penyanyi != "#" && i < nmax do
+    T[i].judul <- judul
+		T[i].penyanyi <- penyanyi
+		T[i].menit <- menit
+		T[i].detik <- detik
+    input(judul, penyanyi, menit, detik)
+    i++
+    n++
+  endwhile
+endprocedure
+
+procedure laguTerlama(in/out T:playlist, in n: integer)
+kamus
+  idx, max,i: integer
+algoritma
+  idx <- 0
+  max <- 0
+  i <- 0
+  for i to n do
+    if (T[i].menit*60)+T[i].detik > max then
+			max = (T[i].menit * 60) + T[i].detik
+			idx = i
+		endif
+  endfor
+  T[idx].judul <- "*" + T[idx].judul
+endprocedure
+
+procedure cetakPlaylist(in/out T: playlist,in n integer) {
+kamus
+  i: integer
+algoritma
+  i <- 0
+	for i to n do {
+		if T[i].judul != "" then
+			if T[i].judul[0] == "*" then
+				print(T[i].judul, T[i].menit, "menit", T[i].detik, "detik")
+			else
+				print(T[i].judul)
+			endif
+		endif
+	endfor
+endprocedure
+
+program playlist
+kamus
+  constant nmax: integer = 1000
+  type waktu < menit, detik: integer >
+  type lagu <
+    judul, penyanyi string,
+    waktu 
+  >
+  type playlist = array [0..nmax] of lagu
+
+  list: playlist
+  n: integer
+algoritma
+  n <- 0
+  buatPlaylist(list, n)
+  cariLagu(list, n)
+  laguTerlama(list, n)
+  cetakPlaylist(listm n)
+endprogram

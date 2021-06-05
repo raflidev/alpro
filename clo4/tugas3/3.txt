@@ -1,0 +1,69 @@
+procedure isiTopik(in/out T: tabTopic,n: integer)
+kamus
+  data: string
+  i: integer
+algoritma
+  data <- ""
+  input(data)
+  i = 0
+  while i < nmax && data != "." do
+    T[i] = data
+    input(data)
+    n++
+    i++
+  endwhile
+endprocedure
+
+procedure cariBanyakTopik(in T: tabTopic, n: integer, topik: string,in/out banyak: integer) {
+kamus
+  i: integer
+algoritma
+	banyak = 0
+	for i to n do
+		if T[i] == topik then
+			banyak++
+		endif
+	endfor
+endprocedure
+
+procedure isiTag(in T: tabTopic, n: integer,in/out tab: tabTag)
+kamus
+  i, j, banyak: integer
+  topik: string
+algoritma
+	j <- 0 
+  i <- 0
+	while j < n do
+		if T[j] != "" then
+			banyak = 0
+			topik = T[j]
+			cariBanyakTopik(T, n, topik, &banyak)
+			tab[j].topik = topik
+			tab[j].banyak = banyak
+			while i < n do
+				if T[i] == topik then
+					T[i] = ""
+				endif
+				i++
+			endwhile
+		endif
+		j++
+		i = 0
+	endwhile
+endprocedure
+
+program topik
+kamus
+  constant nmax: integer = 100
+  type tag < topik: string, banyak: integer>
+  type tabTopic: array [0..nmax] of string
+  type tabTag: array [0..nmax] of tag
+
+  topic: tabTopic
+  tabTag: tabTag
+  n: integer
+algoritma
+  isiTopik(topik, n)
+  isiTag(topik, n, tabTag)
+  cariTrendingTopik(tabTag, n)
+endprogram

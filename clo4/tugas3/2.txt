@@ -1,0 +1,95 @@
+function panjang(in s: string) -> string
+kamus
+  x: integer
+algoritma
+  x = 0
+  while s[x] != null {
+    x++
+  }
+  return x
+endfunction
+
+procedure isiArray(in s: string, in/out daftar: tabStr, k: integer)
+kamus
+  i: integer
+algoritma
+  for i to panjang(s) do
+    if s[i] != "_" then
+      daftar[i] = s[i]
+      k++
+    endif
+  endfor
+endprocedure
+
+procedure cariIndex(in daftar: tabStr, k: integer, w: string,in/out idx: integer)
+kamus
+  found, i: integer
+algoritma
+	found <- -1
+	i <- 0
+	while found == -1 && i <= k do
+		if daftar[i] == w[0] then
+			found = i
+		endif
+		i++
+	endwhile
+
+	idx = found
+endprocedure
+
+procedure cariPosisi(in/out daftar: tabStr,in n: integer, w: string,in/out posisi, idx: integer) {
+kamus
+  spasi, i: integer
+algoritma
+	spasi <- 0
+	for i to n do
+		if daftar[i] == "" then
+			spasi = i
+		endif
+	endfor
+
+	if spasi == *idx || *idx > spasi then
+		posisi = 2
+	else
+		posisi = 1
+	endif
+
+	if spasi == n then
+		idx = -1
+	else if idx > spasi then
+		if (idx - (spasi + 1)) == 0 then
+			idx = idx - (spasi + 1)
+		else
+			idx = (idx - 1) - spasi
+    endif
+	else
+		if ((spasi + 1) - idx) == 0 then
+			idx = (spasi + 1) - idx
+		else
+			idx = spasi - idx - 1
+    endif
+  endif
+endprocedure
+
+
+program kalimat
+kamus
+  type tabStr = array [100] of string
+  t: tabStr
+  teks, w: string
+  k, idx, posisi: integer
+algoritma
+  input(teks, w)
+  k <- 0
+  idx <- 0
+  posisi <- 0
+  isiArray(teks, t, k)
+  cariIndex(t, k, w, idx)
+  cariPosisi(t, k, w, posisi, idx)
+
+  if idx == -1 then
+    print(idx)
+  else
+    print(posisi, idx)
+  endif
+endprogram
