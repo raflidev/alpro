@@ -1,0 +1,63 @@
+procedure isiArray(in/out t: olimpiade, n: integer)
+kamus
+  i: integer
+algoritma
+  i = 0
+	input(n)
+	for i to n do
+		input(t[i].nama, t[i].gold, t[i].silver, t[i].bronze)
+		t[i].poin = poin(t[i].gold, t[i].silver, t[i].bronze)
+	endfor
+endprocedure
+
+function poin(in g, s, b: integer) -> integer
+	return (g * 4) + (s * 3) + b
+endfunction
+
+procedure sorting(in/out t: olimpiade, in n: integer)
+kamus
+	pass, i: integer
+	temp: peserta
+algoritma
+	pass = 1
+	while pass <= n do
+		i = pass
+		temp = t[pass]
+		while i > 0 && temp.poin > t[i-1].poin do
+			t[i] = t[i-1]
+			i--
+		endwhile
+		while i > 0 && temp.poin == t[i-1].poin && temp.silver > t[i-1].silver do
+			t[i] = t[i-1]
+			i--
+		endwhile
+		t[i] = temp
+		pass++
+	endwhile
+endprocedure
+
+procedure tampilArray(in t: olimpiade, n: integer)
+kamus
+  i: integer
+algoritma
+  i = 0
+	for i to n do
+		print(t[i].nama, t[i].gold, t[i].silver, t[i].bronze)
+	endfor
+endprocedure
+
+program olimpiade
+kamus
+  constant nmax: integer = 100
+  type peserta <
+    nama: string,
+    poin, gold, silver, bronze: integer
+  >
+  type olimpiade: array[0..nmax]peserta
+	tab: olimpiade
+	n: integer
+algoritma
+	isiArray(&tab, &n)
+	sorting(&tab, n)
+	tampilArray(tab, n)
+endprogram

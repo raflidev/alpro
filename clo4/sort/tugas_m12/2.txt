@@ -1,0 +1,69 @@
+procedure bacaMasukan(in/out h:tHimpunan) {
+kamus
+	angka, i: integer
+algoritma
+	input(angka)
+	i = 0
+	while i < nMax && angka != -1 do
+		if ada(h, angka) == false then
+			h.anggota[i] = angka
+			h.panjang++
+		endif
+		input(angka)
+		i++
+	endwhile
+endprocedure
+
+function ada(in set:tHimpunan, x:integer) -> boolean 
+kamus
+  i:integer
+algoritma
+	for i to set.panjang do
+		if set.anggota[i] == x then
+			return true
+		endif
+	endfor
+	return false
+endfunction
+
+procedure urut(in/out set:tHimpunan) {
+kamus
+	pass, i: integer
+	temp: integer
+algoritma
+	pass = 1
+	while pass <= set.panjang-1 do
+		i = pass
+		temp = set.anggota[pass]
+		while i > 0 && temp < set.anggota[i-1] do
+			set.anggota[i] = set.anggota[i-1]
+			i--
+		endwhile
+		set.anggota[i] = temp
+		pass++
+	endwhile
+endprocedure
+
+function sama(in h1, h2: tHimpunan) -> bool {
+algoritma
+	return h1 == h2
+endfunction
+
+program himpunan
+kamus
+  constant nmax: integer = 37
+  type tHimpunan <
+   anggota: array [0..nmax] of integer,
+   panjang: integer
+  >
+  h1: tHimpunan
+  h2: tHimpunan
+algoritma
+  print("Anggota himpunan 1: ")
+	bacaMasukan(&h1)
+	print("Anggota himpunan 2: ")
+	bacaMasukan(&h2)
+	urut(&h1)
+	urut(&h2)
+	print("Himpunan 1 = Himpunan 2 ?", sama(h1, h2))
+endprogram

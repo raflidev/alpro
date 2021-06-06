@@ -1,0 +1,72 @@
+function panjang(in bunga: string) -> integer {
+kamus
+	result, i: integer
+algoritma
+	i = 0
+  result = 0
+	while bunga[i] != "." do
+		bungatab := bunga[i]
+		if bungatab != "_" then
+			result++
+		endif
+		i++
+	endwhile
+	return result
+endfunction
+
+procedure isiArray(in/out b: tabBunga, n: integer) {
+kamus
+	bunga: string
+  i: integer
+algoritma
+  i = 0
+	input(n)
+	for i < *n do
+		input(bunga)
+		b[i].nama = bunga
+		b[i].panjang = panjang(bunga)
+	endfor
+endprocedure
+
+procedure mengurutkan(in/out b: tabBunga, in n: integer)
+kamus
+	pass, i: integer
+	temp: bunga
+algoritma
+	pass = 1
+	while pass <= n-1 do
+		i = pass
+		temp = b[pass]
+		while i > 0 && temp.panjang < b[i-1].panjang do
+			b[i] = b[i-1]
+			i--
+		endwhile
+		b[i] = temp
+		pass++
+	endwhile
+endprocedure
+
+procedure tampilArray(in b:tabBunga, n:integer)
+kamus
+  i:integer
+algoritma
+  i = 0
+	for i to n do
+		print(b[i].nama)
+	endfor
+endprocedure
+
+program bunga
+kamus
+  constant nmax: integer = 60
+  type bunga < nama: string, panjang: integer >
+  typeBunga: array [0..nmax] of bunga
+  b: tabBunga
+  n: integer
+algoritma
+  n = 0
+  isiArray(&b, &n)
+	mengurutkan(&b, n)
+
+	tampilArray(b, n)
+endprogram

@@ -1,0 +1,50 @@
+function ganjilAtauGenap(in baris: integer) <- string
+algoritma
+  if baris % 2 == 0 then
+    return "genap"
+  else
+    return "ganjil"
+  endif
+endfunction
+
+procedure sorting(in/out A: tabAngka, in n:integer)
+kamus
+  pass, i : integer
+  temp: real
+algoritma
+  pass = 1
+  while pass <= n - 1 do
+    i = pass
+    temp = A[pass]
+    while i > 0 && temp < A[i-1] do
+      A[i] = A[i-1]
+      i--
+    endwhile
+    A[i] = temp
+    pass++
+  endwhile
+endprocedure
+
+procedure cariMedian(in angka:tabAngka, baris:integer)
+  if ganjilAtauGenap(baris) == "ganjil" then
+    print(angka[(baris/2)])
+  else
+    print((angka[(baris/2)] + angka[(baris/2)-1]) / 2)
+  endif
+endprocedure
+
+program median
+kamus
+  constant nmax: integer = 60
+  type tabAngka: array [0..nmax] of real
+  baris, i: integer
+  angka: tabAngka
+algoritma
+  i = 0
+  for i to baris do 
+    input(angka[i])
+  endfor
+
+  sorting(angka, baris)
+  cariMedian(angka, baris)
+endprogram
