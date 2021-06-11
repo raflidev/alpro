@@ -32,21 +32,21 @@
 // 	return false
 // }
 
-// func urut(set *tHimpunan) {
-// 	var pass, i int
-// 	var temp int
-// 	pass = 1
-// 	for pass <= set.panjang-1 {
-// 		i = pass
-// 		temp = set.anggota[pass]
-// 		for i > 0 && temp < set.anggota[i-1] {
-// 			set.anggota[i] = set.anggota[i-1]
-// 			i--
-// 		}
-// 		set.anggota[i] = temp
-// 		pass++
-// 	}
-// }
+func urut(set *tHimpunan) {
+	var pass, i int
+	var temp int
+	pass = 1
+	for pass <= set.panjang-1 {
+		i = pass
+		temp = set.anggota[pass]
+		for i > 0 && temp < set.anggota[i-1] {
+			set.anggota[i] = set.anggota[i-1]
+			i--
+		}
+		set.anggota[i] = temp
+		pass++
+	}
+}
 
 // func sama(h1, h2 tHimpunan) bool {
 // 	return h1 == h2

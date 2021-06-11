@@ -57,18 +57,13 @@ func urutData(data *dataProvinsi) {
 func main() {
 	var p dataProvinsi
 
-	var nama, nama_prov, nama_prov2 string
-	var populasi int
-	var tumbuh float64
-	fmt.Scanln(&nama, &populasi, &tumbuh)
+	var nama_prov, nama_prov2 string
 	i := 0
-	for i < NMAX && nama != "NONE" && populasi != 0 && tumbuh != 0.0 {
-		p.tabel[i].nama = nama
-		p.tabel[i].populasi = populasi
-		p.tabel[i].tumbuh = tumbuh
+	fmt.Scanln(&p.tabel[i].nama, &p.tabel[i].populasi, &p.tabel[i].tumbuh)
+	for i < NMAX && p.tabel[i].nama != "NONE" && p.tabel[i].populasi != 0 && p.tabel[i].tumbuh != 0.0 {
 		p.nProvinsi++
 		i++
-		fmt.Scanln(&nama, &populasi, &tumbuh)
+		fmt.Scanln(&p.tabel[i].nama, &p.tabel[i].populasi, &p.tabel[i].tumbuh)
 	}
 	fmt.Print("Nama provinsi?\n")
 	fmt.Scanln(&nama_prov)
